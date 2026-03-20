@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Curso de Microbiología — Bachillerato">
+
+<title>🦠 El SARS-CoV-2 por los números</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="covid_magnitudes_files/libs/clipboard/clipboard.min.js"></script>
+<script src="covid_magnitudes_files/libs/quarto-html/quarto.js"></script>
+<script src="covid_magnitudes_files/libs/quarto-html/popper.min.js"></script>
+<script src="covid_magnitudes_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="covid_magnitudes_files/libs/quarto-html/anchor.min.js"></script>
+<link href="covid_magnitudes_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="covid_magnitudes_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="covid_magnitudes_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="covid_magnitudes_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="covid_magnitudes_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#introducción-por-qué-necesitamos-la-notación-científica-en-microbiología" id="toc-introducción-por-qué-necesitamos-la-notación-científica-en-microbiología" class="nav-link active" data-scroll-target="#introducción-por-qué-necesitamos-la-notación-científica-en-microbiología"><span class="header-section-number">1</span> Introducción: ¿Por qué necesitamos la notación científica en microbiología?</a></li>
+  <li><a href="#la-infografía-científica-como-fuente-de-datos" id="toc-la-infografía-científica-como-fuente-de-datos" class="nav-link" data-scroll-target="#la-infografía-científica-como-fuente-de-datos"><span class="header-section-number">2</span> La infografía científica como fuente de datos</a></li>
+  <li><a href="#unidades-de-medida-en-microbiología" id="toc-unidades-de-medida-en-microbiología" class="nav-link" data-scroll-target="#unidades-de-medida-en-microbiología"><span class="header-section-number">3</span> Unidades de medida en microbiología</a>
+  <ul class="collapse">
+  <li><a href="#el-sistema-internacional-y-los-prefijos" id="toc-el-sistema-internacional-y-los-prefijos" class="nav-link" data-scroll-target="#el-sistema-internacional-y-los-prefijos"><span class="header-section-number">3.1</span> El Sistema Internacional y los prefijos</a></li>
+  <li><a href="#unidades-especiales-en-biología-molecular" id="toc-unidades-especiales-en-biología-molecular" class="nav-link" data-scroll-target="#unidades-especiales-en-biología-molecular"><span class="header-section-number">3.2</span> Unidades especiales en biología molecular</a></li>
+  </ul></li>
+  <li><a href="#notación-científica-teoría-y-ejemplos-resueltos" id="toc-notación-científica-teoría-y-ejemplos-resueltos" class="nav-link" data-scroll-target="#notación-científica-teoría-y-ejemplos-resueltos"><span class="header-section-number">4</span> Notación científica: teoría y ejemplos resueltos</a>
+  <ul class="collapse">
+  <li><a href="#conversión-de-número-decimal-a-notación-científica" id="toc-conversión-de-número-decimal-a-notación-científica" class="nav-link" data-scroll-target="#conversión-de-número-decimal-a-notación-científica"><span class="header-section-number">4.1</span> Conversión de número decimal a notación científica</a></li>
+  <li><a href="#ejemplo-resuelto-1-diámetro-del-sars-cov-2" id="toc-ejemplo-resuelto-1-diámetro-del-sars-cov-2" class="nav-link" data-scroll-target="#ejemplo-resuelto-1-diámetro-del-sars-cov-2"><span class="header-section-number">4.2</span> Ejemplo resuelto 1: Diámetro del SARS-CoV-2</a></li>
+  <li><a href="#ejemplo-resuelto-2-masa-del-virión" id="toc-ejemplo-resuelto-2-masa-del-virión" class="nav-link" data-scroll-target="#ejemplo-resuelto-2-masa-del-virión"><span class="header-section-number">4.3</span> Ejemplo resuelto 2: Masa del virión</a></li>
+  <li><a href="#ejemplo-resuelto-3-volumen-del-virión" id="toc-ejemplo-resuelto-3-volumen-del-virión" class="nav-link" data-scroll-target="#ejemplo-resuelto-3-volumen-del-virión"><span class="header-section-number">4.4</span> Ejemplo resuelto 3: Volumen del virión</a></li>
+  </ul></li>
+  <li><a href="#comparación-de-magnitudes-y-órdenes-de-magnitud" id="toc-comparación-de-magnitudes-y-órdenes-de-magnitud" class="nav-link" data-scroll-target="#comparación-de-magnitudes-y-órdenes-de-magnitud"><span class="header-section-number">5</span> Comparación de magnitudes y órdenes de magnitud</a>
+  <ul class="collapse">
+  <li><a href="#qué-es-un-orden-de-magnitud" id="toc-qué-es-un-orden-de-magnitud" class="nav-link" data-scroll-target="#qué-es-un-orden-de-magnitud"><span class="header-section-number">5.1</span> ¿Qué es un orden de magnitud?</a></li>
+  <li><a href="#escala-de-tamaños-biológicos" id="toc-escala-de-tamaños-biológicos" class="nav-link" data-scroll-target="#escala-de-tamaños-biológicos"><span class="header-section-number">5.2</span> Escala de tamaños biológicos</a></li>
+  <li><a href="#ejemplo-resuelto-4-cuántos-virus-caben-en-una-bacteria" id="toc-ejemplo-resuelto-4-cuántos-virus-caben-en-una-bacteria" class="nav-link" data-scroll-target="#ejemplo-resuelto-4-cuántos-virus-caben-en-una-bacteria"><span class="header-section-number">5.3</span> Ejemplo resuelto 4: ¿Cuántos virus caben en una bacteria?</a></li>
+  <li><a href="#ejemplo-resuelto-5-crecimiento-exponencial-con-r₀" id="toc-ejemplo-resuelto-5-crecimiento-exponencial-con-r₀" class="nav-link" data-scroll-target="#ejemplo-resuelto-5-crecimiento-exponencial-con-r₀"><span class="header-section-number">5.4</span> Ejemplo resuelto 5: Crecimiento exponencial con R₀</a></li>
+  </ul></li>
+  <li><a href="#proteínas-del-sars-cov-2-copias-y-magnitudes" id="toc-proteínas-del-sars-cov-2-copias-y-magnitudes" class="nav-link" data-scroll-target="#proteínas-del-sars-cov-2-copias-y-magnitudes"><span class="header-section-number">6</span> Proteínas del SARS-CoV-2: copias y magnitudes</a>
+  <ul class="collapse">
+  <li><a href="#número-de-copias-por-virión" id="toc-número-de-copias-por-virión" class="nav-link" data-scroll-target="#número-de-copias-por-virión"><span class="header-section-number">6.1</span> Número de copias por virión</a></li>
+  <li><a href="#ejemplo-resuelto-6-comparación-de-abundancia" id="toc-ejemplo-resuelto-6-comparación-de-abundancia" class="nav-link" data-scroll-target="#ejemplo-resuelto-6-comparación-de-abundancia"><span class="header-section-number">6.2</span> Ejemplo resuelto 6: Comparación de abundancia</a></li>
+  </ul></li>
+  <li><a href="#concentración-viral-datos-y-análisis" id="toc-concentración-viral-datos-y-análisis" class="nav-link" data-scroll-target="#concentración-viral-datos-y-análisis"><span class="header-section-number">7</span> Concentración viral: datos y análisis</a>
+  <ul class="collapse">
+  <li><a href="#datos-de-la-infografía" id="toc-datos-de-la-infografía" class="nav-link" data-scroll-target="#datos-de-la-infografía"><span class="header-section-number">7.1</span> Datos de la infografía</a></li>
+  <li><a href="#ejemplo-resuelto-7-diferencia-de-concentraciones" id="toc-ejemplo-resuelto-7-diferencia-de-concentraciones" class="nav-link" data-scroll-target="#ejemplo-resuelto-7-diferencia-de-concentraciones"><span class="header-section-number">7.2</span> Ejemplo resuelto 7: Diferencia de concentraciones</a></li>
+  </ul></li>
+  <li><a href="#el-genoma-del-sars-cov-2" id="toc-el-genoma-del-sars-cov-2" class="nav-link" data-scroll-target="#el-genoma-del-sars-cov-2"><span class="header-section-number">8</span> El genoma del SARS-CoV-2</a>
+  <ul class="collapse">
+  <li><a href="#tamaño-contenido-y-tasas" id="toc-tamaño-contenido-y-tasas" class="nav-link" data-scroll-target="#tamaño-contenido-y-tasas"><span class="header-section-number">8.1</span> Tamaño, contenido y tasas</a></li>
+  <li><a href="#ejemplo-resuelto-8-mutaciones-por-replicación" id="toc-ejemplo-resuelto-8-mutaciones-por-replicación" class="nav-link" data-scroll-target="#ejemplo-resuelto-8-mutaciones-por-replicación"><span class="header-section-number">8.2</span> Ejemplo resuelto 8: Mutaciones por replicación</a></li>
+  </ul></li>
+  <li><a href="#tiempos-de-replicación-viral" id="toc-tiempos-de-replicación-viral" class="nav-link" data-scroll-target="#tiempos-de-replicación-viral"><span class="header-section-number">9</span> Tiempos de replicación viral</a>
+  <ul class="collapse">
+  <li><a href="#datos-de-la-infografía-1" id="toc-datos-de-la-infografía-1" class="nav-link" data-scroll-target="#datos-de-la-infografía-1"><span class="header-section-number">9.1</span> Datos de la infografía</a></li>
+  <li><a href="#ejemplo-resuelto-9-producción-de-viriones" id="toc-ejemplo-resuelto-9-producción-de-viriones" class="nav-link" data-scroll-target="#ejemplo-resuelto-9-producción-de-viriones"><span class="header-section-number">9.2</span> Ejemplo resuelto 9: Producción de viriones</a></li>
+  </ul></li>
+  <li><a href="#resumen-de-conversiones-clave" id="toc-resumen-de-conversiones-clave" class="nav-link" data-scroll-target="#resumen-de-conversiones-clave"><span class="header-section-number">10</span> Resumen de conversiones clave</a></li>
+  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">11</span> 📝 Ejercicios propuestos</a>
+  <ul class="collapse">
+  <li><a href="#bloque-a-notación-científica-y-conversión-de-unidades" id="toc-bloque-a-notación-científica-y-conversión-de-unidades" class="nav-link" data-scroll-target="#bloque-a-notación-científica-y-conversión-de-unidades"><span class="header-section-number">11.1</span> Bloque A: Notación científica y conversión de unidades ⭐</a></li>
+  <li><a href="#bloque-b-comparación-de-magnitudes-y-órdenes" id="toc-bloque-b-comparación-de-magnitudes-y-órdenes" class="nav-link" data-scroll-target="#bloque-b-comparación-de-magnitudes-y-órdenes"><span class="header-section-number">11.2</span> Bloque B: Comparación de magnitudes y órdenes ⭐⭐</a></li>
+  <li><a href="#bloque-c-pensamiento-crítico" id="toc-bloque-c-pensamiento-crítico" class="nav-link" data-scroll-target="#bloque-c-pensamiento-crítico"><span class="header-section-number">11.3</span> Bloque C: Pensamiento crítico ⭐⭐⭐</a></li>
+  </ul></li>
+  <li><a href="#respuestas-guía-bloque-a" id="toc-respuestas-guía-bloque-a" class="nav-link" data-scroll-target="#respuestas-guía-bloque-a"><span class="header-section-number">12</span> Respuestas guía (Bloque A)</a></li>
+  <li><a href="#referencias-y-recursos" id="toc-referencias-y-recursos" class="nav-link" data-scroll-target="#referencias-y-recursos"><span class="header-section-number">13</span> Referencias y recursos</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="covid_magnitudes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">🦠 El SARS-CoV-2 por los números</h1>
+<p class="subtitle lead">Notación científica, magnitudes y conversión de unidades aplicadas a la microbiología</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Curso de Microbiología — Bachillerato </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">20 de marzo de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<section id="introducción-por-qué-necesitamos-la-notación-científica-en-microbiología" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introducción: ¿Por qué necesitamos la notación científica en microbiología?</h1>
+<p>Imagina que intentas describir el diámetro del virus SARS-CoV-2 escribiendo todos sus ceros:</p>
+<p><span class="math display">\[0.000{,}000{,}100 \text{ metros}\]</span></p>
+<p>¡Eso es difícil de leer, difícil de comparar y muy fácil de equivocarse! Por eso los científicos usamos la <strong>notación científica</strong>, que nos permite expresar números muy grandes o muy pequeños de forma compacta y clara.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📌 Recuerda
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La <strong>notación científica</strong> escribe cualquier número en la forma:</p>
+<p><span class="math display">\[a \times 10^n\]</span></p>
+<p>donde <span class="math inline">\(1 \leq a &lt; 10\)</span> y <span class="math inline">\(n\)</span> es un número entero (positivo o negativo).</p>
+</div>
+</div>
+<p>En esta guía usaremos datos <strong>reales</strong> del SARS-CoV-2 (el virus que causa el COVID-19) para practicar estas habilidades matemáticas.</p>
+<hr>
+</section>
+<section id="la-infografía-científica-como-fuente-de-datos" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> La infografía científica como fuente de datos</h1>
+<p>El siguiente diagrama fue publicado por investigadores del Instituto Weizmann de Ciencias (Israel) y el Caltech. Contiene docenas de valores numéricos reales sobre el SARS-CoV-2.</p>
+<div id="fig-infografia" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Infografía científica del SARS-CoV-2">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-infografia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="covid_infographic.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Infografía científica del SARS-CoV-2">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-infografia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Infografía del SARS-CoV-2 por los números (Bar-On <em>et al.</em>, 2020, <em>eLife</em>)
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔍 Observa la imagen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tómate 2 minutos para explorar la infografía. Fíjate en cuántos números aparecen y en qué <strong>unidades</strong> están expresados. Verás: <strong>nm</strong>, <strong>nm³</strong>, <strong>fL</strong>, <strong>MDa</strong>, <strong>fg</strong>, <strong>kb</strong>, entre otros.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="unidades-de-medida-en-microbiología" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Unidades de medida en microbiología</h1>
+<p>Antes de trabajar con los números del virus, necesitamos conocer las unidades que usan los microbiólogos.</p>
+<section id="el-sistema-internacional-y-los-prefijos" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="el-sistema-internacional-y-los-prefijos"><span class="header-section-number">3.1</span> El Sistema Internacional y los prefijos</h2>
+<p>Todo parte del <strong>metro (m)</strong> para longitud, el <strong>gramo (g)</strong> para masa y el <strong>litro (L)</strong> para volumen.</p>
+<div id="tbl-prefijos" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-prefijos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;1: Prefijos del SI más usados en microbiología
+</figcaption>
+<div aria-describedby="tbl-prefijos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 31%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prefijo</th>
+<th>Símbolo</th>
+<th>Factor</th>
+<th>Notación científica</th>
+<th>Ejemplo biológico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mega</td>
+<td>M</td>
+<td>1,000,000</td>
+<td><span class="math inline">\(10^6\)</span></td>
+<td>Tamaño del genoma humano (~3,000 Mb)</td>
+</tr>
+<tr class="even">
+<td>Kilo</td>
+<td>k</td>
+<td>1,000</td>
+<td><span class="math inline">\(10^3\)</span></td>
+<td>Longitud de un cromosoma bacteriano</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+<td>1</td>
+<td><span class="math inline">\(10^0\)</span></td>
+<td>1 metro</td>
+</tr>
+<tr class="even">
+<td>Mili</td>
+<td>m</td>
+<td>0.001</td>
+<td><span class="math inline">\(10^{-3}\)</span></td>
+<td>Grosor de un cabello humano (~70 µm)</td>
+</tr>
+<tr class="odd">
+<td><strong>Micro</strong></td>
+<td><strong>µ</strong></td>
+<td><strong>0.000001</strong></td>
+<td><span class="math inline">\(10^{-6}\)</span></td>
+<td><strong>Diámetro de una bacteria (~1–10 µm)</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Nano</strong></td>
+<td><strong>n</strong></td>
+<td><strong>0.000000001</strong></td>
+<td><span class="math inline">\(10^{-9}\)</span></td>
+<td><strong>Diámetro de un virus (~100 nm)</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Femto</strong></td>
+<td><strong>f</strong></td>
+<td><span class="math inline">\(10^{-15}\)</span></td>
+<td><span class="math inline">\(10^{-15}\)</span></td>
+<td><strong>Volumen de una bacteria (~1 fL)</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="unidades-especiales-en-biología-molecular" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="unidades-especiales-en-biología-molecular"><span class="header-section-number">3.2</span> Unidades especiales en biología molecular</h2>
+<div id="tbl-unidades-bio" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-unidades-bio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2: Unidades especiales en biología molecular
+</figcaption>
+<div aria-describedby="tbl-unidades-bio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Unidad</th>
+<th>Símbolo</th>
+<th>Equivalencia</th>
+<th>Se usa para</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dalton</td>
+<td>Da</td>
+<td>masa de 1 átomo de hidrógeno ≈ <span class="math inline">\(1.66 \times 10^{-24}\)</span> g</td>
+<td>masa de moléculas</td>
+</tr>
+<tr class="even">
+<td><strong>Mega</strong>dalton</td>
+<td>MDa</td>
+<td><span class="math inline">\(10^6\)</span> Da</td>
+<td>masa de virus, proteínas grandes</td>
+</tr>
+<tr class="odd">
+<td>Kilobases</td>
+<td>kb</td>
+<td><span class="math inline">\(10^3\)</span> pares de bases de ADN/ARN</td>
+<td>tamaño del genoma</td>
+</tr>
+<tr class="even">
+<td>Femtolitro</td>
+<td>fL</td>
+<td><span class="math inline">\(10^{-15}\)</span> L</td>
+<td>volumen de células y virus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="notación-científica-teoría-y-ejemplos-resueltos" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Notación científica: teoría y ejemplos resueltos</h1>
+<section id="conversión-de-número-decimal-a-notación-científica" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="conversión-de-número-decimal-a-notación-científica"><span class="header-section-number">4.1</span> Conversión de número decimal a notación científica</h2>
+<p><strong>Regla:</strong> Mueve el punto decimal hasta que quede un solo dígito antes del punto. El exponente de 10 indica cuántos lugares y en qué dirección moviéste el punto.</p>
+<ul>
+<li>Si el número original es <strong>mayor que 10</strong> → el exponente es <strong>positivo</strong></li>
+<li>Si el número original es <strong>menor que 1</strong> → el exponente es <strong>negativo</strong></li>
+</ul>
+</section>
+<section id="ejemplo-resuelto-1-diámetro-del-sars-cov-2" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="ejemplo-resuelto-1-diámetro-del-sars-cov-2"><span class="header-section-number">4.2</span> Ejemplo resuelto 1: Diámetro del SARS-CoV-2</h2>
+<p>De la infografía: el <strong>diámetro del SARS-CoV-2 es ≈100 nm</strong>.</p>
+<p>Convirtamos 100 nm a metros:</p>
+<p><strong>Paso 1:</strong> Convertir nm a metros. Sabemos que <span class="math inline">\(1 \text{ nm} = 10^{-9} \text{ m}\)</span></p>
+<p><span class="math display">\[100 \text{ nm} = 100 \times 10^{-9} \text{ m}\]</span></p>
+<p><strong>Paso 2:</strong> Escribir en notación científica correcta (un solo dígito antes del punto):</p>
+<p><span class="math display">\[100 \times 10^{-9} = 1.00 \times 10^{2} \times 10^{-9} = 1.00 \times 10^{-7} \text{ m}\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✅ Resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\text{Diámetro del SARS-CoV-2} = 1.00 \times 10^{-7} \text{ m}\]</span></p>
+<p>Es decir, <strong>una décima millonésima de metro</strong>. Para ponerlo en perspectiva: ¡caben 1,000 viriones SARS-CoV-2 en el diámetro de un cabello humano (~100 µm)!</p>
+</div>
+</div>
+</section>
+<section id="ejemplo-resuelto-2-masa-del-virión" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="ejemplo-resuelto-2-masa-del-virión"><span class="header-section-number">4.3</span> Ejemplo resuelto 2: Masa del virión</h2>
+<p>De la infografía: <strong>masa ≈ <span class="math inline">\(10^3\)</span> MDa ≈ 1 fg</strong></p>
+<p>Vamos a convertir <strong>1 fg</strong> (femtogramo) a gramos:</p>
+<p><strong>Paso 1:</strong> Recordar que <span class="math inline">\(1 \text{ fg} = 10^{-15} \text{ g}\)</span></p>
+<p><span class="math display">\[1 \text{ fg} = 1 \times 10^{-15} \text{ g}\]</span></p>
+<p><strong>Paso 2:</strong> Verificar con la masa en Daltons. <span class="math inline">\(10^3 \text{ MDa} = 10^3 \times 10^6 \text{ Da} = 10^9 \text{ Da}\)</span></p>
+<p>Convertir <span class="math inline">\(10^9\)</span> Da a gramos (1 Da ≈ <span class="math inline">\(1.66 \times 10^{-24}\)</span> g):</p>
+<p><span class="math display">\[10^9 \times 1.66 \times 10^{-24} \text{ g} = 1.66 \times 10^{-15} \text{ g} \approx 1 \text{ fg}\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✅ Resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>¡Ambas rutas nos dan el mismo resultado! La masa del virión ≈ <span class="math inline">\(10^{-15}\)</span> g = 1 fg. Esto <strong>confirma la consistencia</strong> de los datos de la infografía.</p>
+</div>
+</div>
+</section>
+<section id="ejemplo-resuelto-3-volumen-del-virión" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="ejemplo-resuelto-3-volumen-del-virión"><span class="header-section-number">4.4</span> Ejemplo resuelto 3: Volumen del virión</h2>
+<p>De la infografía: <strong>volumen ≈ <span class="math inline">\(10^6\)</span> nm³ = <span class="math inline">\(10^{-3}\)</span> fL</strong></p>
+<p><strong>¿Cómo se relacionan nm³ y fL?</strong></p>
+<p><strong>Paso 1:</strong> Expresar el volumen en litros. <span class="math inline">\(1 \text{ nm} = 10^{-9} \text{ m}\)</span>, entonces <span class="math inline">\(1 \text{ nm}^3 = (10^{-9})^3 \text{ m}^3 = 10^{-27} \text{ m}^3\)</span></p>
+<p><strong>Paso 2:</strong> Convertir m³ a litros (1 m³ = 1000 L = <span class="math inline">\(10^3\)</span> L):</p>
+<p><span class="math display">\[1 \text{ nm}^3 = 10^{-27} \text{ m}^3 \times 10^3 \frac{\text{L}}{\text{m}^3} = 10^{-24} \text{ L}\]</span></p>
+<p><strong>Paso 3:</strong> Calcular el volumen total del virión:</p>
+<p><span class="math display">\[10^6 \text{ nm}^3 \times 10^{-24} \frac{\text{L}}{\text{nm}^3} = 10^{-18} \text{ L}\]</span></p>
+<p><strong>Paso 4:</strong> Convertir a femtolitros (<span class="math inline">\(1 \text{ fL} = 10^{-15}\)</span> L):</p>
+<p><span class="math display">\[10^{-18} \text{ L} \div 10^{-15} \frac{\text{L}}{\text{fL}} = 10^{-3} \text{ fL}\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✅ Resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\text{Volumen} = 10^6 \text{ nm}^3 = 10^{-3} \text{ fL}\]</span></p>
+<p>Esto concuerda perfectamente con lo que dice la infografía. 🎯</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="comparación-de-magnitudes-y-órdenes-de-magnitud" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Comparación de magnitudes y órdenes de magnitud</h1>
+<section id="qué-es-un-orden-de-magnitud" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="qué-es-un-orden-de-magnitud"><span class="header-section-number">5.1</span> ¿Qué es un orden de magnitud?</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📐 Definición
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un <strong>orden de magnitud</strong> es un factor de 10. Cuando decimos que A es “dos órdenes de magnitud mayor que B”, significa que <span class="math inline">\(A = 100 \times B\)</span>.</p>
+<p>Formalmente: si <span class="math inline">\(A = 10^n\)</span> y <span class="math inline">\(B = 10^m\)</span>, la diferencia de órdenes de magnitud es <span class="math inline">\(n - m\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="escala-de-tamaños-biológicos" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="escala-de-tamaños-biológicos"><span class="header-section-number">5.2</span> Escala de tamaños biológicos</h2>
+<div id="tbl-tamanios" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tamanios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3: Comparación de tamaños biológicos usando el SARS-CoV-2 como referencia
+</figcaption>
+<div aria-describedby="tbl-tamanios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 21%">
+<col style="width: 36%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Objeto</th>
+<th>Tamaño típico</th>
+<th>Notación científica (m)</th>
+<th>Órdenes vs.&nbsp;virus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Molécula de agua</td>
+<td>0.3 nm</td>
+<td><span class="math inline">\(3 \times 10^{-10}\)</span> m</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td>Proteína (spike)</td>
+<td>~10 nm</td>
+<td><span class="math inline">\(10^{-8}\)</span> m</td>
+<td>0 (referencia virus)</td>
+</tr>
+<tr class="odd">
+<td><strong>Virus SARS-CoV-2</strong></td>
+<td><strong>~100 nm</strong></td>
+<td><span class="math inline">\(\mathbf{10^{-7}}\)</span> <strong>m</strong></td>
+<td><strong>0</strong></td>
+</tr>
+<tr class="even">
+<td>Bacteria (<em>E. coli</em>)</td>
+<td>~2 µm</td>
+<td><span class="math inline">\(2 \times 10^{-6}\)</span> m</td>
+<td>+1</td>
+</tr>
+<tr class="odd">
+<td>Glóbulo rojo</td>
+<td>~8 µm</td>
+<td><span class="math inline">\(8 \times 10^{-6}\)</span> m</td>
+<td>+2</td>
+</tr>
+<tr class="even">
+<td>Célula epitelial</td>
+<td>~50 µm</td>
+<td><span class="math inline">\(5 \times 10^{-5}\)</span> m</td>
+<td>+3</td>
+</tr>
+<tr class="odd">
+<td>Cabello humano</td>
+<td>~100 µm</td>
+<td><span class="math inline">\(10^{-4}\)</span> m</td>
+<td>+3</td>
+</tr>
+<tr class="even">
+<td>Punto (.) en papel</td>
+<td>~0.5 mm</td>
+<td><span class="math inline">\(5 \times 10^{-4}\)</span> m</td>
+<td>+4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="ejemplo-resuelto-4-cuántos-virus-caben-en-una-bacteria" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="ejemplo-resuelto-4-cuántos-virus-caben-en-una-bacteria"><span class="header-section-number">5.3</span> Ejemplo resuelto 4: ¿Cuántos virus caben en una bacteria?</h2>
+<p>Datos:</p>
+<ul>
+<li>Diámetro del SARS-CoV-2: <span class="math inline">\(d_v \approx 100 \text{ nm}\)</span></li>
+<li>Diámetro de <em>E. coli</em>: <span class="math inline">\(d_b \approx 1{,}000 \text{ nm} = 1 \text{ µm}\)</span></li>
+</ul>
+<p>Si <strong>aproximamos ambos como esferas</strong> y comparamos sus volúmenes:</p>
+<p><span class="math display">\[V_{esfera} = \frac{4}{3}\pi r^3\]</span></p>
+<p><span class="math display">\[\frac{V_{bacteria}}{V_{virus}} = \frac{(500 \text{ nm})^3}{(50 \text{ nm})^3} = \left(\frac{500}{50}\right)^3 = 10^3 = 1{,}000\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✅ Resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En términos de volumen, ¡<strong>1,000 virus SARS-CoV-2</strong> cabrían dentro de una bacteria <em>E. coli</em>! Eso es una diferencia de <strong>3 órdenes de magnitud</strong> en volumen.</p>
+</div>
+</div>
+</section>
+<section id="ejemplo-resuelto-5-crecimiento-exponencial-con-r₀" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="ejemplo-resuelto-5-crecimiento-exponencial-con-r₀"><span class="header-section-number">5.4</span> Ejemplo resuelto 5: Crecimiento exponencial con R₀</h2>
+<p>De la infografía: <strong>R₀ ≈ 2–4</strong> para SARS-CoV-2. Usando R₀ = 3:</p>
+<div id="tbl-r0" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-r0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;4: Crecimiento exponencial del número de casos con R₀ = 3
+</figcaption>
+<div aria-describedby="tbl-r0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Generación</th>
+<th>Nuevos casos</th>
+<th>Notación científica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0 (paciente inicial)</td>
+<td>1</td>
+<td><span class="math inline">\(10^0\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>9</td>
+<td><span class="math inline">\(\approx 10^1\)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>243</td>
+<td><span class="math inline">\(\approx 10^{2.4}\)</span></td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>59,049</td>
+<td><span class="math inline">\(\approx 10^{4.8}\)</span></td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td><span class="math inline">\(\approx 3.5 \times 10^9\)</span></td>
+<td><span class="math inline">\(\approx 10^{9.5}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚠️ ¡Crecimiento exponencial!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Después de solo <strong>20 generaciones</strong> de contagio (a ~5 días cada una = 100 días), teóricamente el virus podría haber alcanzado a toda la población humana (~8 × 10⁹ personas). Esto explica por qué las pandemias crecen tan rápido.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="proteínas-del-sars-cov-2-copias-y-magnitudes" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Proteínas del SARS-CoV-2: copias y magnitudes</h1>
+<section id="número-de-copias-por-virión" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="número-de-copias-por-virión"><span class="header-section-number">6.1</span> Número de copias por virión</h2>
+<div id="tbl-proteinas" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-proteinas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;5: Número de copias de proteínas estructurales del SARS-CoV-2
+</figcaption>
+<div aria-describedby="tbl-proteinas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Proteína</th>
+<th>Copias por virión</th>
+<th>Notación científica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Spike (S)</td>
+<td>~100 trímeros ≈ 300 monómeros</td>
+<td><span class="math inline">\(\approx 10^2\)</span></td>
+</tr>
+<tr class="even">
+<td>Proteína de membrana (M)</td>
+<td>~2,000</td>
+<td><span class="math inline">\(\approx 2 \times 10^3\)</span></td>
+</tr>
+<tr class="odd">
+<td>Nucleoproteína (N)</td>
+<td>~1,000</td>
+<td><span class="math inline">\(\approx 10^3\)</span></td>
+</tr>
+<tr class="even">
+<td>Proteína de envoltura (E)</td>
+<td>~20</td>
+<td><span class="math inline">\(\approx 2 \times 10^1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="ejemplo-resuelto-6-comparación-de-abundancia" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="ejemplo-resuelto-6-comparación-de-abundancia"><span class="header-section-number">6.2</span> Ejemplo resuelto 6: Comparación de abundancia</h2>
+<p>¿Cuántas veces más abundante es la proteína M comparada con la proteína E?</p>
+<p><span class="math display">\[\frac{\text{Copias de M}}{\text{Copias de E}} = \frac{2000}{20} = 100 = 10^2\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✅ Resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La proteína M es <strong>100 veces más abundante</strong> que la proteína E, es decir, <strong>2 órdenes de magnitud</strong> más.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="concentración-viral-datos-y-análisis" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Concentración viral: datos y análisis</h1>
+<section id="datos-de-la-infografía" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="datos-de-la-infografía"><span class="header-section-number">7.1</span> Datos de la infografía</h2>
+<div id="tbl-concentracion" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-concentracion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;6: Concentraciones de ARN viral detectadas
+</figcaption>
+<div aria-describedby="tbl-concentracion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Muestra</th>
+<th>Concentración máxima (ARN)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nasofaringe</td>
+<td><span class="math inline">\(10^6 - 10^9\)</span> copias/hisopo</td>
+</tr>
+<tr class="even">
+<td>Garganta</td>
+<td><span class="math inline">\(10^4 - 10^8\)</span> copias/hisopo</td>
+</tr>
+<tr class="odd">
+<td>Heces</td>
+<td><span class="math inline">\(10^4 - 10^8\)</span> copias/g</td>
+</tr>
+<tr class="even">
+<td>Esputo</td>
+<td><span class="math inline">\(10^6 - 10^{11}\)</span> copias/mL</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="ejemplo-resuelto-7-diferencia-de-concentraciones" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="ejemplo-resuelto-7-diferencia-de-concentraciones"><span class="header-section-number">7.2</span> Ejemplo resuelto 7: Diferencia de concentraciones</h2>
+<p>¿Cuántos órdenes de magnitud de diferencia hay entre la concentración máxima en esputo y la mínima en garganta?</p>
+<p><span class="math display">\[\text{Máxima en esputo} = 10^{11} \text{ copias/mL}\]</span> <span class="math display">\[\text{Mínima en garganta} = 10^4 \text{ copias/mL}\]</span></p>
+<p><span class="math display">\[\frac{10^{11}}{10^4} = 10^{11-4} = 10^7 \text{ diferencia}\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✅ Resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La diferencia es de <strong>7 órdenes de magnitud</strong>: el esputo puede tener hasta <strong>10,000,000 veces más</strong> copias de ARN viral que lo mínimo detectable en garganta.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔬 Nota científica importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El ARN viral puede estar en fragmentos no funcionales o viriones defectuosos. El número de <strong>partículas infecciosas</strong> es siempre menor que el número de copias de ARN detectadas.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="el-genoma-del-sars-cov-2" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> El genoma del SARS-CoV-2</h1>
+<section id="tamaño-contenido-y-tasas" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="tamaño-contenido-y-tasas"><span class="header-section-number">8.1</span> Tamaño, contenido y tasas</h2>
+<p>De la infografía: <strong>Longitud ≈ 30 kb</strong>; contiene <strong>10–14 ORFs</strong> que codifican <strong>24–27 proteínas</strong>.</p>
+<p><span class="math display">\[30 \text{ kb} = 30 \times 10^3 \text{ bases} = 3 \times 10^4 \text{ nucleótidos}\]</span></p>
+<div id="tbl-tasas" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tasas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;7: Tasas de evolución del SARS-CoV-2
+</figcaption>
+<div aria-describedby="tbl-tasas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 21%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parámetro</th>
+<th>Valor</th>
+<th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tasa de evolución</td>
+<td><span class="math inline">\(\sim 10^{-3}\)</span> nt<span class="math inline">\(^{-1}\)</span>año<span class="math inline">\(^{-1}\)</span></td>
+<td>1 cambio por cada 1,000 nt/año</td>
+</tr>
+<tr class="even">
+<td>Tasa de mutación</td>
+<td><span class="math inline">\(\sim 10^{-6}\)</span> nt<span class="math inline">\(^{-1}\)</span>ciclo<span class="math inline">\(^{-1}\)</span></td>
+<td>1 error por millón de nt/ciclo</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="ejemplo-resuelto-8-mutaciones-por-replicación" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="ejemplo-resuelto-8-mutaciones-por-replicación"><span class="header-section-number">8.2</span> Ejemplo resuelto 8: Mutaciones por replicación</h2>
+<p><span class="math display">\[\text{Mutaciones/ciclo} = 10^{-6} \frac{\text{mut}}{\text{nt} \cdot \text{ciclo}} \times 3 \times 10^4 \text{ nt} = 3 \times 10^{-2} \approx 0.03 \text{ mut/ciclo}\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✅ Resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>~0.03 mutaciones por ciclo</strong>, o sea <strong>1 mutación cada ~33 ciclos</strong>. Con billones de replicaciones ocurriendo simultáneamente, las variantes emergen inevitablemente.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="tiempos-de-replicación-viral" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Tiempos de replicación viral</h1>
+<section id="datos-de-la-infografía-1" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="datos-de-la-infografía-1"><span class="header-section-number">9.1</span> Datos de la infografía</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Evento</th>
+<th>Tiempo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entrada del virión a la célula</td>
+<td>~10 minutos</td>
+</tr>
+<tr class="even">
+<td>Período de eclipse</td>
+<td>~10 horas</td>
+</tr>
+<tr class="odd">
+<td><em>Burst size</em> (tamaño de explosión)</td>
+<td>~<span class="math inline">\(10^3\)</span> viriones por célula</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ejemplo-resuelto-9-producción-de-viriones" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="ejemplo-resuelto-9-producción-de-viriones"><span class="header-section-number">9.2</span> Ejemplo resuelto 9: Producción de viriones</h2>
+<p>Si una célula produce <span class="math inline">\(10^3\)</span> viriones en 10 horas:</p>
+<p><span class="math display">\[\text{Tasa por célula} = \frac{10^3 \text{ viriones}}{10 \text{ h}} = 10^2 \text{ viriones/h}\]</span></p>
+<p>Extrapolando a todos los neumocitos pulmonares (<span class="math inline">\(\sim 10^{11}\)</span> células):</p>
+<p><span class="math display">\[10^{11} \text{ células} \times 10^2 \frac{\text{viriones}}{\text{célula·h}} = 10^{13} \text{ viriones/h}\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✅ Resultado (hipotético)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el escenario de infección total, podrían producirse hasta <span class="math inline">\(10^{13}\)</span> viriones/hora. En la práctica, el sistema inmune controla esto, pero ilustra el <strong>poder exponencial</strong> de la infección viral.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="resumen-de-conversiones-clave" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Resumen de conversiones clave</h1>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Tabla resumen de unidades y conversiones con contexto biológico</caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 18%">
+<col style="width: 25%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Unidad</th>
+<th style="text-align: center;">En SI</th>
+<th style="text-align: center;">Notación Científica</th>
+<th style="text-align: left;">Contexto SARS-CoV-2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1 nm</td>
+<td style="text-align: center;">10⁻⁹ m</td>
+<td style="text-align: center;">1×10⁻⁹ m</td>
+<td style="text-align: left;">10× menor que el spike (10 nm)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1 µm</td>
+<td style="text-align: center;">10⁻⁶ m</td>
+<td style="text-align: center;">1×10⁻⁶ m</td>
+<td style="text-align: left;">10× mayor que el virus (100 nm)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 mm</td>
+<td style="text-align: center;">10⁻³ m</td>
+<td style="text-align: center;">1×10⁻³ m</td>
+<td style="text-align: left;">10,000× mayor que el virus</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1 fL</td>
+<td style="text-align: center;">10⁻¹⁵ L</td>
+<td style="text-align: center;">1×10⁻¹⁵ L</td>
+<td style="text-align: left;">1000× el volumen del virión (10⁻³ fL)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 MDa</td>
+<td style="text-align: center;">≈1.66×10⁻¹⁸ g</td>
+<td style="text-align: center;">1.66×10⁻¹⁸ g</td>
+<td style="text-align: left;">Un millón de Daltons</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1 fg</td>
+<td style="text-align: center;">10⁻¹⁵ g</td>
+<td style="text-align: center;">1×10⁻¹⁵ g</td>
+<td style="text-align: left;">Igual a la masa del virión</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">30 kb</td>
+<td style="text-align: center;">3×10⁴ nt</td>
+<td style="text-align: center;">3×10⁴ nt</td>
+<td style="text-align: left;">Tamaño del genoma viral</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+<section id="ejercicios-propuestos" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> 📝 Ejercicios propuestos</h1>
+<p>Ahora es tu turno. Resuelve los siguientes ejercicios usando los datos de la infografía y lo que aprendiste en esta guía.</p>
+<hr>
+<section id="bloque-a-notación-científica-y-conversión-de-unidades" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="bloque-a-notación-científica-y-conversión-de-unidades"><span class="header-section-number">11.1</span> Bloque A: Notación científica y conversión de unidades ⭐</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio A1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La proteína <strong>spike</strong> del SARS-CoV-2 tiene una longitud de <strong>10 nm</strong>.</p>
+<ol type="a">
+<li>Exprésala en metros usando notación científica.</li>
+<li>Exprésala en µm.</li>
+<li>¿Cuántos spikes alineados cabrían en 1 mm?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio A2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El genoma del SARS-CoV-2 tiene <strong>≈30,000 nucleótidos</strong>.</p>
+<ol type="a">
+<li>Expresa ese número en notación científica.</li>
+<li>Si cada nucleótido ocupa aproximadamente <strong>0.34 nm</strong> cuando está extendido, ¿cuántos metros mediría el ARN estirado?</li>
+<li>Expresa ese resultado en µm.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio A3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Convierte las siguientes cantidades a las unidades indicadas:</p>
+<ol type="a">
+<li><span class="math inline">\(5 \times 10^8\)</span> copias de ARN/mL → copias/µL</li>
+<li><span class="math inline">\(2.5 \times 10^3\)</span> MDa → Da</li>
+<li><span class="math inline">\(0.001\)</span> fL → nm³</li>
+<li><span class="math inline">\(150\)</span> nm → m (notación científica)</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio A4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La masa de un virión de SARS-CoV-2 es <strong>1 fg</strong>.</p>
+<ol type="a">
+<li>Exprésala en gramos en notación científica.</li>
+<li>¿Cuántos viriones se necesitarían para tener una masa total de <strong>1 µg</strong> (1 microgramo)?</li>
+<li>Expresa ese número en notación científica.</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="bloque-b-comparación-de-magnitudes-y-órdenes" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="bloque-b-comparación-de-magnitudes-y-órdenes"><span class="header-section-number">11.2</span> Bloque B: Comparación de magnitudes y órdenes ⭐⭐</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio B1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Usando la tabla de tamaños biológicos, contesta:</p>
+<ol type="a">
+<li>¿Cuántos órdenes de magnitud separan una molécula de agua de una célula epitelial?</li>
+<li>¿Qué es más grande: un virus SARS-CoV-2 o una bacteria <em>E. coli</em>? ¿Cuántas veces?</li>
+<li>¿Cuántos virus SARS-CoV-2 (diámetro a diámetro) cabrían en el largo de un glóbulo rojo?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio B2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De la infografía, el pulmón tiene:</p>
+<ul>
+<li><strong>~<span class="math inline">\(10^{11}\)</span></strong> neumocitos tipo I y II</li>
+<li><strong>~<span class="math inline">\(10^{10}\)</span></strong> macrófagos alveolares</li>
+</ul>
+<ol type="a">
+<li>¿Cuántas veces más abundantes son los neumocitos que los macrófagos?</li>
+<li>Expresa la diferencia en órdenes de magnitud.</li>
+<li>Si el virus infectara al <strong>0.1%</strong> de los neumocitos, ¿cuántas células estarían infectadas? Expresa en notación científica.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio B3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El SARS-CoV-2 comparte identidad nucleotídica con otros coronavirus:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Coronavirus</th>
+<th>Identidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Murciélago CoV</td>
+<td>96%</td>
+</tr>
+<tr class="even">
+<td>Pangolín CoV</td>
+<td>91%</td>
+</tr>
+<tr class="odd">
+<td>SARS-CoV-1</td>
+<td>80%</td>
+</tr>
+<tr class="even">
+<td>MERS</td>
+<td>55%</td>
+</tr>
+<tr class="odd">
+<td>Resfriado común CoV</td>
+<td>50%</td>
+</tr>
+</tbody>
+</table>
+<p>Si el genoma tiene <strong>30,000 nucleótidos</strong>:</p>
+<ol type="a">
+<li>¿Cuántos nucleótidos <strong>difieren</strong> entre SARS-CoV-2 y murciélago CoV?</li>
+<li>¿Y entre SARS-CoV-2 y MERS?</li>
+<li>Expresa ambas diferencias en notación científica.</li>
+<li>¿En cuántos órdenes de magnitud difieren las diferencias de a) y b)?</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="bloque-c-pensamiento-crítico" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="bloque-c-pensamiento-crítico"><span class="header-section-number">11.3</span> Bloque C: Pensamiento crítico ⭐⭐⭐</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio C1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El período de incubación del COVID-19 es <strong>≈5 días</strong>.</p>
+<ol type="a">
+<li>Exprésalo en horas y en minutos (en notación científica).</li>
+<li>Si el período de eclipse es 10 horas, ¿cuántos <strong>ciclos completos de replicación</strong> podrían ocurrir durante el período de incubación?</li>
+<li>Comenzando con <strong>1 virión</strong> y un <em>burst size</em> de <span class="math inline">\(10^3\)</span>, ¿cuántos viriones habría teóricamente después de 3 ciclos? Expresa en notación científica.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio C2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La vida media del virus en superficies es <strong>1–10 horas</strong>.</p>
+<ol type="a">
+<li>Si la concentración inicial es <span class="math inline">\(10^6\)</span> viriones/cm², ¿cuál será la concentración después de <strong>3 vidas medias</strong>? (Tras cada vida media, la concentración se reduce a la mitad).</li>
+<li>Expresa el resultado en notación científica.</li>
+<li>¿Cuántas vidas medias son necesarias para bajar a <strong>menos de 1 virión/cm²</strong>?</li>
+<li>Si cada vida media es 5 horas, ¿cuántas horas corresponden a ese número de vidas medias?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio C3 — Reto 🏆
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La afinidad del spike al receptor ACE2 es <span class="math inline">\(K_d \approx 1-40 \text{ nM}\)</span>.</p>
+<ol type="a">
+<li>Expresa <span class="math inline">\(1 \text{ nM}\)</span> en mol/L en notación científica.</li>
+<li>Expresa <span class="math inline">\(40 \text{ nM}\)</span> en mol/L en notación científica.</li>
+<li>¿Cuántos órdenes de magnitud separan <span class="math inline">\(1\)</span> nM de <span class="math inline">\(40\)</span> nM?</li>
+<li>Una <span class="math inline">\(K_d\)</span> más <strong>pequeña</strong> indica mayor afinidad. Si una nueva variante tuviera <span class="math inline">\(K_d = 0.1 \text{ nM}\)</span>, ¿sería más o menos peligrosa? Explica tu razonamiento usando notación científica.</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="respuestas-guía-bloque-a" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Respuestas guía (Bloque A)</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔑 Ver respuestas del Bloque A
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>A1:</strong></p>
+<ol type="a">
+<li><span class="math inline">\(10 \text{ nm} = 10 \times 10^{-9} \text{ m} = 1 \times 10^{-8}\)</span> m</li>
+<li><span class="math inline">\(10 \text{ nm} = 0.01 \text{ µm} = 1 \times 10^{-2}\)</span> µm</li>
+<li><span class="math inline">\(1 \text{ mm} \div 10 \text{ nm} = 10^{-3} \text{ m} \div 10^{-8} \text{ m} = 10^5 = 100{,}000\)</span> spikes</li>
+</ol>
+<p><strong>A2:</strong></p>
+<ol type="a">
+<li><span class="math inline">\(30{,}000 = 3 \times 10^4\)</span> nucleótidos</li>
+<li><span class="math inline">\(3 \times 10^4 \times 0.34 \text{ nm} = 1.02 \times 10^4\)</span> nm = <span class="math inline">\(1.02 \times 10^{-5}\)</span> m</li>
+<li><span class="math inline">\(1.02 \times 10^{-5}\)</span> m <span class="math inline">\(= 10.2\)</span> µm <em>(¡casi tan largo como la célula hospedera!)</em></li>
+</ol>
+<p><strong>A3:</strong></p>
+<ol type="a">
+<li><span class="math inline">\(5 \times 10^8 \div 10^3 = 5 \times 10^5\)</span> copias/µL</li>
+<li><span class="math inline">\(2.5 \times 10^3 \times 10^6 = 2.5 \times 10^9\)</span> Da</li>
+<li><span class="math inline">\(10^{-3}\)</span> fL <span class="math inline">\(= 10^{-3} \times 10^{-15}\)</span> L <span class="math inline">\(= 10^{-18}\)</span> L <span class="math inline">\(= 10^{-18} \times 10^{24}\)</span> nm³ <span class="math inline">\(= 10^6\)</span> nm³</li>
+<li><span class="math inline">\(150 \text{ nm} = 1.50 \times 10^{-7}\)</span> m</li>
+</ol>
+<p><strong>A4:</strong></p>
+<ol type="a">
+<li><span class="math inline">\(1 \text{ fg} = 1 \times 10^{-15}\)</span> g</li>
+<li><span class="math inline">\(1 \text{ µg} = 10^{-6}\)</span> g → número de viriones <span class="math inline">\(= 10^{-6} \div 10^{-15} = 10^9\)</span></li>
+<li><span class="math inline">\(10^9\)</span> viriones (¡1,000 millones de viriones en apenas 1 microgramo de masa viral!)</li>
+</ol>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="referencias-y-recursos" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Referencias y recursos</h1>
+<ul>
+<li><p><strong>Bar-On YM, Flamholz A, Phillips R, Milo R</strong> (2020). SARS-CoV-2 (COVID-19) by the numbers. <em>eLife</em> 9:e57309. <a href="https://doi.org/10.7554/eLife.57309" class="uri">https://doi.org/10.7554/eLife.57309</a></p></li>
+<li><p><strong>Milo R &amp; Phillips R</strong> (2015). <em>Cell Biology by the Numbers</em>. Garland Science. <a href="http://book.bionumbers.org" class="uri">http://book.bionumbers.org</a></p></li>
+<li><p><strong>BioNumbers</strong> — Base de datos de números en biología: <a href="https://bionumbers.hms.harvard.edu" class="uri">https://bionumbers.hms.harvard.edu</a></p></li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Nota sobre precisión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El símbolo <strong>≈</strong> indica “aproximadamente” con una precisión de factor 2. El símbolo <strong>~</strong> indica “orden de magnitud” o precisión de factor 10. En ciencias, reportar la incertidumbre es tan importante como el valor mismo.</p>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
