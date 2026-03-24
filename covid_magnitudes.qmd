@@ -1,7 +1,7 @@
 ---
-title: "🦠 El SARS-CoV-2 por los números"
+title: "🦠 Los números del SARS-CoV-2"
 subtitle: "Notación científica, magnitudes y conversión de unidades aplicadas a la microbiología"
-author: "Curso de Microbiología — Bachillerato"
+author: "Roberto Álvarez"
 date: today
 lang: es
 format:
